@@ -94,7 +94,7 @@ public class productoPHP extends AppCompatActivity implements View.OnClickListen
     }
 
     private void searchprod(String xreferencia) {
-        String url = "http://192.168.1.7/ServicioswebPHP/buscarproducto.php?id="+xreferencia;
+        String url = "http://192.168.1.7/ServicioswebPHP/buscarproducto.php?id="+referencia.getText().toString();
         jrq = new JsonObjectRequest(Request.Method.GET,url,null,this,this);
         rq.add(jrq);
     }
@@ -114,20 +114,16 @@ public class productoPHP extends AppCompatActivity implements View.OnClickListen
         try {
             jsonObject = jsonArray.getJSONObject(0);//posición 0 del arreglo....
             objprod.setId(jsonObject.optString("id"));
-            objprod.setProducto(jsonObject.optString("nombreproducto")); //opcional
+            objprod.setProducto(jsonObject.optString("nombreProducto")); //opcional
             objprod.setValor(jsonObject.optString("valor"));
         }
         catch (JSONException e)
         {
             e.printStackTrace();
         }
-        referencia.setText(objprod.getProducto());
+        referencia.setText(objprod.getId());
         nombreProducto.setText(objprod.getProducto());
-        precio.setText(objprod.getProducto());
-
-
-
-
+        precio.setText(objprod.getValor());
 
     }
 

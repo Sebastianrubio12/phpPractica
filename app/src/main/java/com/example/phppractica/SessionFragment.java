@@ -82,7 +82,7 @@ public class SessionFragment extends Fragment implements Response.Listener<JSONO
         //Toast.makeText(getContext(),"Se ha encontrado el usuario"+correo.getText().toString(),Toast.LENGTH_SHORT).show();
         usuario objusuario = new usuario();
         //datos: arreglo que envía los datos en formato JSON, en el archivo php
-        JSONArray jsonArray = response.optJSONArray("usuarios");
+        JSONArray jsonArray = response.optJSONArray("usuario");
         JSONObject jsonObject = null;
         try {
             jsonObject = jsonArray.getJSONObject(0);//posición 0 del arreglo....
